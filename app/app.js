@@ -97,7 +97,7 @@ function renderListings(features) {
 // //    filterEl.parentNode.style.display = "none";
 
 //     // remove features filter***
-//     map.setFilter("countries_latest", ["has", "id_gaul"]);
+//     map.setFilter("gaul_acp_result", ["has", "id_gaul"]);
 //   }
 }
 
@@ -162,7 +162,7 @@ var bounds = [
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
-    center: [18, 23], // starting position[35.890, -75.664]
+    center: [47, 23], // starting position[35.890, -75.664]
     zoom: 1.78, // starting zoom
     hash: true,
     minZoom: 1,
@@ -268,20 +268,20 @@ var miolayer = map.getLayer('point');
 
   
         map.addLayer({
-          "id": "eez_land",
+          "id": "eez_acp",
           "type": "fill",
           "source": {
               "type": "vector",
-              "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=hotspots:eez_land&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+              "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:eez_acp&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
               },
-          "source-layer": "eez_land",
+          "source-layer": "eez_acp",
     
           'paint': { 
             'fill-color': '#21313f',
             'fill-outline-color': '#ffffff',
             
          
-            'fill-opacity': 0.1,
+            'fill-opacity': 0.3,
     
     
                     }
@@ -289,20 +289,20 @@ var miolayer = map.getLayer('point');
       }, 'waterway-label');
       
       map.addLayer({
-        "id": "countries_latest",
+        "id": "gaul_acp_result",
         "type": "fill",
         "source": {
             "type": "vector",
-            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:countries_latest&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:gaul_acp_result&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
             },
-        "source-layer": "countries_latest",
+        "source-layer": "gaul_acp_result",
   
         'paint': { 
           'fill-color': '#618135',
           'fill-outline-color': '#cbcbcb',
           
        
-          'fill-opacity': 0.4,
+          'fill-opacity': 0.6,
   
   
                   }
@@ -338,14 +338,14 @@ var miolayer = map.getLayer('point');
         "type": "circle",
         "source": {
             "type": "vector",
-            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:points_3857&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:acp_all&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
             },
-        "source-layer": "points_3857",
+        "source-layer": "acp_all",
         'paint': {
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': {
-            'base': 4,
-            'stops': [[1, 3], [7.6, 13.8]]
+            'base': 3,
+            'stops': [[1, 2.6], [10, 20]]
           }, 'circle-color': '#343333',
 
 
@@ -361,27 +361,7 @@ var miolayer = map.getLayer('point');
     }, 'waterway-label');
 
 
-    map.addLayer({
-      "id": "pa_buf",
-      "type": "circle",
-      "source": {
-          "type": "vector",
-          "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:buf_in_pa_points&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
-          },
-      "source-layer": "buf_in_pa_points",
-      'paint': {
-        // make circles larger as the user zooms from z12 to z22
-        'circle-radius': {
-        'base': 2,
-        'stops': [[1, 2], [7, 4]]
-        }, 'circle-color': '#595958',
 
-       'circle-opacity': 0.8
-    },//"filter":["in", "id_gaul", ""]
-
-    'filter': ["in", "adm0_code",0],
-
-  }, 'waterway-label');
 
 
     map.addLayer({
@@ -389,9 +369,9 @@ var miolayer = map.getLayer('point');
         "type": "circle",
         "source": {
             "type": "vector",
-            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:points_3857&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=dopa_analyst:acp_all&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
             },
-        "source-layer": "points_3857",
+        "source-layer": "acp_all",
         'paint': {
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': {
@@ -442,17 +422,7 @@ var miolayer = map.getLayer('point');
       var urlParams = new URLSearchParams(queryString);
       var country_iso3 = urlParams.get('iso3')
       
-     
-      if (window.location.href.indexOf("iso3") === -1){
-        lat = 0
-        lon = 0
-        center = {lng: lat, lat: lon}
-        var pointsel = map.project(center)
-        var ll = new mapboxgl.LngLat(lat, lon);
-         //map.fire('click', { lngLat: ll, point:pointsel });
-         console.log('not contains');
-
-     } else if (country_iso3 == 'ZAF'){
+      if (country_iso3 == 'ZAF'){
          lat = 24.068403959235123
          lon = -28.562333017576503
          center = {lng: lat, lat: lon}
@@ -715,7 +685,7 @@ var miolayer = map.getLayer('point');
       
 
     map.on("moveend", function () {
-    var features = map.queryRenderedFeatures({ layers: ["countries_latest"] });
+    var features = map.queryRenderedFeatures({ layers: ["gaul_acp_result"] });
 
     if (features) {
       var uniqueFeatures = getUniqueFeatures(features, "adm0_code");
@@ -731,7 +701,7 @@ var miolayer = map.getLayer('point');
     }
   });
 
-  map.on("mousemove", "countries_latest", function (e) {
+  map.on("mousemove", "gaul_acp_result", function (e) {
     // Change the cursor style as a UI indicator.
     map.getCanvas().style.cursor = "pointer";
 
@@ -783,7 +753,7 @@ var miolayer = map.getLayer('point');
         ).addTo(map);
   });
 
-  map.on("mouseleave", "countries_latest", function () {
+  map.on("mouseleave", "gaul_acp_result", function () {
     map.getCanvas().style.cursor = "";
     map.getCanvas().style.cursor = "";
     popup.remove();
@@ -905,7 +875,7 @@ popup.remove();
 var layer_country = document.getElementById('layer_country');
 layer_country.addEventListener('change', function() {
   var layer_country_value = document.getElementById('layer_country').value;
-  map.setPaintProperty('countries_latest', 'fill-color', ['interpolate',['linear'],['get', layer_country_value],0, '#ffffd4',10, '#ffefb5',50, '#ffde96',100, '#fec46c',150, '#fea73f',250, '#f68c23',350, '#e67217',500, '#d25a0c',750, '#b64708',1000, '#993404']);
+  map.setPaintProperty('gaul_acp_result', 'fill-color', ['interpolate',['linear'],['get', layer_country_value],0, '#ffffd4',10, '#ffefb5',50, '#ffde96',100, '#fec46c',150, '#fea73f',250, '#f68c23',350, '#e67217',500, '#d25a0c',750, '#b64708',1000, '#993404']);
 });
 
 
@@ -1237,7 +1207,7 @@ setTimeout(function(){
 
   
 
-  map.on('click', 'countries_latest', function(e) {
+  map.on('click', 'gaul_acp_result', function(e) {
 
     window.history.replaceState(null, null, "?iso3="+e.features[0].properties.iso3);
     var pa_bb_url = "https://geospatial.jrc.ec.europa.eu/geoserver/wfs?request=getfeature&version=1.0.0&service=wfs&typename=dopa_explorer_3:global_dashboard&propertyname=iso3_digit&SORTBY=iso3_digit&CQL_FILTER=iso3_digit='"+e.features[0].properties.iso3+"'&outputFormat=application%2Fjson";
@@ -1267,7 +1237,7 @@ setTimeout(function(){
 
 
 
-      map.setFilter('pa_buf', ["in", 'adm0_code', 0]);
+
 
       $("#map").busyLoad("show", busy_tabs);
       map.setPaintProperty(
@@ -1572,7 +1542,7 @@ setTimeout(function(){
 }
 
       //  var coordinates = feature.geometry.coordinates;
-      var cfeatures = map.queryRenderedFeatures(e.point, { layers: ['countries_latest'] });
+      var cfeatures = map.queryRenderedFeatures(e.point, { layers: ['gaul_acp_result'] });
       var filter = cfeatures.reduce(function(memo, feature) {
              memo.push(feature.properties.adm0_code);
              return memo;
@@ -1580,7 +1550,7 @@ setTimeout(function(){
              bounds.extend(feature.geometry.coordinates);
              map.fitBounds(bounds);
          }, ['!in', 'adm0_code']);
-         map.setFilter("countries_latest", filter);
+         map.setFilter("gaul_acp_result", filter);
 
 
         var filter_points = ["in", 'adm0_code', country_id];
@@ -1669,7 +1639,6 @@ setTimeout(function(){
       var filter_buff = ["in", 'adm0_code', country_id_fi];
       var filter_wdpa = ["in", 'iso3', country_iso3_fi];
       map.setFilter('dopa_geoserver_wdpa_master_202101_o1', filter_wdpa);
-      map.setFilter('pa_buf', filter_buff);
       map.setFilter('grid_points_3', filter_points_2);
       setTimeout(function(){
       $("#submit").click();
@@ -1681,7 +1650,6 @@ setTimeout(function(){
       map.setFilter('dopa_geoserver_wdpa_master_202101_o1', filter_wdpa);
       var filter_points = ["in", 'adm0_code', country_id_fi];
       map.setFilter('grid_points_3', filter_points);
-      map.setFilter('pa_buf', ["in", 'adm0_code', 0]);
       setTimeout(function(){
       $("#submit").click();
       $('.country_sel_legend_title').html('Biodiversity Resources Index in Country');
@@ -1895,12 +1863,11 @@ $("#submit").click(function () {
           setTimeout(function(){
             $('.country_sel_legend_title').html('Biodiversity Resources Index in Country <br><b>excluding Protected Areas');
 
-            $('.legend').append("<br><div id='country_prot_legend'> <p class='country_sel_legend_title'>Protected Areas</p>"+
-            "<div><span class='circle_pa'style='background-color: #595958'></span>Partially protected</div>"+
-            "<div><span class='square_pa'style='background-color: #595958'></span>Protected Areas Boundaries</div>"+
-            "</div>").children(':last').hide().fadeIn(2000);
-          
-    },100);
+              $('.legend').append("<br><div id='country_prot_legend'> <p class='country_sel_legend_title'>Protected Areas</p>"+
+                "<div><span class='square_pa'style='background-color: #595958'></span>Protected Areas Boundaries</div>"+
+                "</div>").children(':last').hide().fadeIn(2000);
+              
+          },100);
         
         }else{setTimeout(function(){
           $('#country_prot_legend').empty();
