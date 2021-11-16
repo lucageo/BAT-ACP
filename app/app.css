@@ -9,7 +9,9 @@ input[type=range]::-webkit-slider-runnable-track {
     border: 0px solid #000101;
   }
   
-  
+  .modal-content > p{
+    font-size: 11px;
+  }
   
   input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #535353;
@@ -877,26 +879,26 @@ input[type=range]::-webkit-slider-runnable-track {
   
   }
   .modal-content {
-      position: relative;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      width: 100%;
-      pointer-events: auto;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 0px solid rgba(0,0,0,.2);
-      border-radius: 0px;
-      outline: 0;
-      height: 91%;
-  }
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #0d0d0e;
+    background-clip: padding-box;
+    border: 0px solid rgba(0,0,0,.2);
+    border-radius: 0px;
+    outline: 0;
+    height: 91%;
+}
   .modal {
       display: none;
       position: fixed;
       left: 22%;
       right: 0;
-      background-color: #ffffffc7;
+      background-color: #0d0d0e;
       padding: 0;
       max-height: 70%;
       width: 55%;
@@ -904,10 +906,11 @@ input[type=range]::-webkit-slider-runnable-track {
       overflow-y: auto;
       border-radius: 2px;
       will-change: top, opacity;
+      color: white;
   }
   .modal .modal-footer {
       border-radius: 0px;
-      background-color: #ffffff;
+      background-color: #0d0d0e;
       padding: 4px 6px;
       height: 60px;
       width: 100%;
