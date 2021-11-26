@@ -129,7 +129,7 @@
   </div>
   <div id="modal-th_mammals" class="modal">
     <div class="modal-content">
-      <h4>Threatened Mammals Richness </h4> <br>
+      <h4>Endemic Threatened Mammals Richness </h4> <br>
       <b>ABSTRACT</b>
       <p>The Threatened Global Mammal Richness dataset derives from the aggregations of the presence grids data for the entire class, individual families, and International Union for the Conservation of Nature (IUCN) Red List status categories. The data are available at 1 km resolution. The grid cell values represent the number of species. The input vector layers are based on the IUCN Red List and the grids are computed by the European Commission- Joint Research Centre within the Digital Observatory for Protected Areas framework. The data from IUCN were downloaded in April 2020. </p>
       <br><b>DATA PROVIDER</b>
@@ -167,7 +167,7 @@
   </div>
   <div id="modal-th_amphibians" class="modal">
     <div class="modal-content">
-    <h4>Threatened Amphibians Richness </h4> <br>
+    <h4>Endemic Threatened Amphibians Richness </h4> <br>
     <b>ABSTRACT</b>
     <p>The Threatened Global Amphibians Richness dataset derives from the aggregations of the presence grids data for the entire class, individual families, and International Union for the Conservation of Nature (IUCN) Red List status categories. The data are available at 1 km resolution. The grid cell values represent the number of species. The input vector layers are based on the IUCN Red List and the grids are computed by the European Commission- Joint Research Centre within the Digital Observatory for Protected Areas framework. The data from IUCN were downloaded in April 2020. </p>
     <br><b>DATA PROVIDER</b>
@@ -189,6 +189,25 @@
       <h4>Birds Richness </h4> <br>
       <b>ABSTRACT</b>
       <p>The Global Birds Richness dataset derives from the aggregations of the presence grids data for the entire class, individual families, and International Union for the Conservation of Nature (IUCN) Red List status categories. The data are available at 1 km resolution. The grid cell values represent the number of species. The input vector layers are based on the IUCN Red List and the grids are computed by the European Commission- Joint Research Centre within the Digital Observatory for Protected Areas framework. The data from IUCN were downloaded in April 2020. </p>
+      <br><b>DATA PROVIDER</b>
+      <p>IUCN and European Commission - Joint Research Centre</p>
+      <br><b>TECHNICAL BACKGROUND</b>
+      <p>​​Range maps of all birds are assessed globally by the IUCN (2020.1 version of the IUCN Red List of Threatened Species TM (RLTS)). Import has been restricted to polygons that are categorized by IUCN with the following attributes:
+        ● the presence is either extant or probably extant (maintained for compliance with previous analyzes);
+        ● the origin is either native or introduced;
+        ● the seasonality is breeding, non-breeding, or resident.
+        The above polygons have been rasterized at the resolution of 1 km, then dissolved (reducing the redundancy of multiple ranges by species).
+        </p>
+      <br><b>RELATED SDGs </b>
+      <p>GOAL 15: Life on land</p>
+      </p>
+    </div>
+  </div>
+  <div id="modal-th_birds" class="modal">
+    <div class="modal-content">
+      <h4>Endemic Threatened Birds Richness </h4> <br>
+      <b>ABSTRACT</b>
+      <p>The Global Threatened Birds Richness dataset derives from the aggregations of the presence grids data for the entire class, individual families, and International Union for the Conservation of Nature (IUCN) Red List status categories. The data are available at 1 km resolution. The grid cell values represent the number of species. The input vector layers are based on the IUCN Red List and the grids are computed by the European Commission- Joint Research Centre within the Digital Observatory for Protected Areas framework. The data from IUCN were downloaded in April 2020. </p>
       <br><b>DATA PROVIDER</b>
       <p>IUCN and European Commission - Joint Research Centre</p>
       <br><b>TECHNICAL BACKGROUND</b>
@@ -231,6 +250,7 @@
       <option value='shape_leng'>Birds Richness</option>
       <option value='shape_leng'>Endemic Threatened Mammals Richness</option>
       <option value='shape_leng'>Endemic Threatened Anphibians Richness</option>
+      <option value='shape_leng'>Endemic Threatened Birds Richness</option>
       <option value='iso3'>Overall Score</option>
       </select>
       </fieldset>
@@ -314,7 +334,12 @@
                 <p class="range-field range-field-birds"><input type="range" id="birds_slider" value ="1" min="1" max="10" /> <output id="birds_value" name="birds_value">1<span></span></output></p>
               </div>
             </form>
-            
+            <form action="#">
+              <div class="input-field col s12">
+                <a class='btn modal-trigger' href='#modal-th_birds'><span class='material-icons'>info</span></a><span class="material-icons delvarico delvarico-th_birds">clear</span> <label>Threatened Endemic Birds Presence</label><br>    
+                <p class="range-field range-field-th_birds"><input type="range" id="birds_th_slider" value ="1" min="1" max="10" /> <output id="birds_th_value" name="birds_th_value">1<span></span></output></p>
+              </div>
+            </form>
 
 
             <form action="#">
